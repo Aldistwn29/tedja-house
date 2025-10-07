@@ -1,8 +1,3 @@
-Mantap banget, ini sudah jadi proyek Laravel yang cukup kompleks dan lengkap — ada **CMS Admin (Filament)**, **Midtrans Payment Gateway**, **Auth via Laravel Breeze**, dan **Role Permission via Spatie**.
-Berikut aku bantu buatin **dokumentasi profesional dan rapi** yang bisa kamu simpan di file `README.md` atau dijadikan laporan proyek ✨
-
----
-
 # 🏠 TEDJA Project: Web Property Selling and Installments
 
 ## 📖 About
