@@ -1,61 +1,333 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Mantap banget, ini sudah jadi proyek Laravel yang cukup kompleks dan lengkap — ada **CMS Admin (Filament)**, **Midtrans Payment Gateway**, **Auth via Laravel Breeze**, dan **Role Permission via Spatie**.
+Berikut aku bantu buatin **dokumentasi profesional dan rapi** yang bisa kamu simpan di file `README.md` atau dijadikan laporan proyek ✨
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+---
 
-## About Laravel
+# 🏠 TEDJA Project: Web Property Selling and Installments
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📖 About
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**TEDJA** adalah website yang membantu masyarakat membeli rumah atau apartemen dengan sistem **cicilan terintegrasi**.
+Platform ini memfasilitasi pembeli berpenghasilan rendah untuk mendapatkan hunian impian dengan proses yang **mudah, aman, dan transparan**.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Website ini dibangun menggunakan **Laravel Framework** dan mengintegrasikan:
 
-## Learning Laravel
+* **Filament Admin Panel** untuk CMS pengelolaan data.
+* **Midtrans** untuk sistem pembayaran online.
+* **Laravel Breeze** untuk otentikasi login dan register.
+* **Spatie Laravel Permission** untuk pengaturan role-based access control.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## ⚙️ Tech Stack
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+| Layer           | Technology                       |
+| --------------- | -------------------------------- |
+| Backend         | Laravel 11.x                     |
+| Frontend        | Blade Template + Tailwind CSS    |
+| Authentication  | Laravel Breeze                   |
+| Authorization   | Spatie Laravel Permission        |
+| Admin Dashboard | Filament Admin Panel             |
+| Payment Gateway | Midtrans (Snap API)              |
+| Database        | MySQL / MariaDB                  |
+| Web Server      | Laravel Artisan / Nginx / Apache |
+| Environment     | PHP 8.3, Composer 2.x            |
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 👥 User Roles
 
-### Premium Partners
+### 🏗️ 1. House Developer (Admin)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Admin bertugas mengelola semua data dan memantau aktivitas pembelian.
 
-## Contributing
+**Admin Features (via Filament Dashboard):**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+* Login ke dashboard admin.
+* CRUD:
 
-## Code of Conduct
+  * Category
+  * Users
+  * Roles
+  * City
+  * Bank
+  * Facility
+  * House Facilities
+  * House (beserta detailnya)
+  * Interest
+  * Mortgage Request
+  * Installments
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Admin Pages:**
 
-## Security Vulnerabilities
+* `/admin` → Filament Dashboard
+* `/admin/*` → CRUD Resource Pages (otomatis dari Filament)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+### 🏡 2. Customer
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Customer dapat menjelajahi katalog rumah, mengajukan cicilan, dan melakukan pembayaran.
+
+**Customer Features:**
+
+* [x] Register / Login (Laravel Breeze)
+* [x] Jelajahi katalog rumah
+* [x] Lihat detail rumah
+* [x] Simulasi perhitungan cicilan
+* [x] Pilih bank penyedia pinjaman
+* [x] Ajukan *Mortgage Request* dengan dokumen pendukung
+* [x] Tunggu proses persetujuan dari admin/bank
+* [x] Setelah disetujui, bayar cicilan pertama melalui Midtrans
+* [x] Lihat riwayat pembayaran cicilan
+
+**Customer Pages:**
+
+* **No Auth:**
+
+  * `/` → Homepage
+  * `/houses` → Katalog rumah
+  * `/houses/{id}` → Detail rumah
+  * `/calculation` → Perhitungan cicilan
+* **With Auth:**
+
+  * `/dashboard/mortgage` → List pengajuan
+  * `/dashboard/installment` → Riwayat pembayaran
+  * `/dashboard/installment/payment` → Halaman pembayaran Midtrans
+
+---
+
+## 💳 Payment Integration (Midtrans)
+
+### 🔗 Flow Integrasi Midtrans
+
+1. **Customer klik tombol "Bayar"**
+
+   * Request dikirim ke endpoint Laravel untuk generate **Snap Token**.
+2. **Backend (PaymentService)** membuat parameter transaksi:
+
+   * order_id
+   * gross_amount
+   * custom_field (user_id & mortgage_request_id)
+3. **Midtrans mengirimkan Snap Token**
+
+   * Frontend membuka pop-up pembayaran Midtrans Snap.
+4. **Customer melakukan pembayaran**
+
+   * Midtrans mengirimkan **Webhook Notification** ke endpoint Laravel.
+5. **Backend menangani notifikasi**
+
+   * Mengecek status `settlement` atau `capture`.
+   * Membuat data `Installment` baru di database.
+6. **Customer diarahkan kembali ke dashboard**
+
+   * Status pembayaran dan riwayat cicilan diperbarui otomatis.
+
+---
+
+## 🔢 Amortization Formula (Perhitungan Cicilan)
+
+Formula cicilan mengikuti standar internasional perbankan:
+
+[
+M = P \times \frac{r(1 + r)^n}{(1 + r)^n - 1}
+]
+
+**Keterangan:**
+
+* `M` = Cicilan bulanan
+* `P` = Jumlah pinjaman (principal)
+* `r` = Suku bunga per bulan (bunga tahunan ÷ 12)
+* `n` = Total jumlah cicilan (tahun × 12)
+
+Contoh implementasi:
+
+```php
+$monthlyRate = ($interestRate / 100) / 12;
+$months = $loanTerm * 12;
+$monthlyPayment = $loanAmount * ($monthlyRate * pow(1 + $monthlyRate, $months)) / (pow(1 + $monthlyRate, $months) - 1);
+```
+
+---
+
+## 🔐 Authentication & Authorization
+
+### 🧩 Laravel Breeze
+
+Digunakan untuk:
+
+* Login
+* Register
+* Logout
+* Reset password
+* Session management
+
+### ⚖️ Spatie Laravel Permission
+
+Mendefinisikan role & permission untuk user:
+
+* **Role:**
+
+  * `admin` → Akses penuh Filament CMS
+  * `customer` → Akses halaman pengguna
+
+Middleware:
+
+```php
+Route::group(['middleware' => ['role:admin']], function() {
+    // Filament dashboard
+});
+
+Route::group(['middleware' => ['role:customer']], function() {
+    // User dashboard
+});
+```
+
+---
+
+## 🧱 Filament CMS (Admin Panel)
+
+Filament digunakan untuk membuat halaman CRUD secara cepat tanpa harus membuat controller & view manual.
+
+Contoh konfigurasi resource:
+
+```php
+class HouseResource extends Resource
+{
+    protected static ?string $model = House::class;
+
+    public static function form(Form $form): Form
+    {
+        return $form->schema([
+            TextInput::make('name')->required(),
+            Textarea::make('description'),
+            Select::make('city_id')->relationship('city', 'name'),
+        ]);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table->columns([
+            TextColumn::make('name')->sortable()->searchable(),
+            TextColumn::make('city.name'),
+        ]);
+    }
+}
+```
+
+---
+
+## 🧰 Project Structure Overview
+
+```
+TEDJA/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Auth/
+│   │   │   ├── DashboardController.php
+│   │   │   ├── PaymentController.php
+│   │   │   └── HouseController.php
+│   │   ├── Middleware/
+│   │   └── Requests/
+│   ├── Models/
+│   │   ├── House.php
+│   │   ├── Installment.php
+│   │   ├── MortgageRequest.php
+│   │   └── User.php
+│   ├── Services/
+│   │   ├── PaymentService.php
+│   │   └── MidtransService.php
+│   └── Policies/
+│
+├── resources/
+│   ├── views/
+│   │   ├── front/
+│   │   └── dashboard/
+│
+├── routes/
+│   ├── web.php
+│   ├── api.php
+│   └── filament.php
+│
+├── database/
+│   ├── migrations/
+│   ├── seeders/
+│   └── factories/
+│
+├── config/
+│   ├── midtrans.php
+│   ├── permission.php
+│   └── filament.php
+│
+└── .env
+```
+
+---
+
+## 🚀 How to Run the Project
+
+### 1️⃣ Clone & Install Dependencies
+
+```bash
+git clone https://github.com/yourusername/tedja.git
+cd tedja
+composer install
+npm install && npm run dev
+```
+
+### 2️⃣ Setup Environment
+
+Salin file `.env.example` ke `.env` dan ubah konfigurasi sesuai kebutuhan:
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Atur Midtrans di `.env`:
+
+```env
+MIDTRANS_SERVER_KEY=Mid-server-xxxxxx
+MIDTRANS_CLIENT_KEY=Mid-client-xxxxxx
+MIDTRANS_IS_PRODUCTION=false
+MIDTRANS_SANITIZE=true
+MIDTRANS_3DS=true
+```
+
+### 3️⃣ Migrate Database
+
+```bash
+php artisan migrate --seed
+```
+
+### 4️⃣ Jalankan Server
+
+```bash
+php artisan serve
+```
+
+### 5️⃣ Akses Dashboard
+
+* Admin Dashboard: `/admin`
+* Customer Frontend: `/`
+
+---
+
+## 📦 Deployment Notes
+
+* Gunakan HTTPS untuk URL webhook Midtrans (wajib SSL).
+* Jalankan `php artisan queue:work` untuk memproses event async jika dibutuhkan.
+* Untuk testing Midtrans gunakan:
+
+  * Snap URL: `https://app.sandbox.midtrans.com/snap/snap.js`
+  * Dashboard: [https://dashboard.sandbox.midtrans.com/](https://dashboard.sandbox.midtrans.com/)
+
+---
+
+## 🧾 License
+
+Project ini dikembangkan untuk tujuan pembelajaran dan penelitian.
+Silakan gunakan dan modifikasi sesuai kebutuhan dengan mencantumkan atribusi kepada pengembang asli.
+
+---
